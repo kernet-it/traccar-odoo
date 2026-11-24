@@ -1,6 +1,6 @@
 # Traccar Fleet
 
-Connect Traccar devices to Odoo 19 Community Fleet vehicles. Requires the `fleet`
+Connect Traccar devices to Odoo 18 Community Fleet vehicles. Requires the `fleet`
 module and Python `requests`.
 
 ## Installation
@@ -61,7 +61,7 @@ Traccar retain their last snapshot and are marked unavailable in Odoo.
 Create a new connection when switching to a different Traccar database, since
 device IDs are specific to each database.
 
-Supports Odoo 19 Community. Other Odoo major versions have not been tested.
+Supports Odoo 18 Community. Other Odoo major versions have not been tested.
 
 ## License
 

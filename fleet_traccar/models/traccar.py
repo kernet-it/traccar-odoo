@@ -156,8 +156,10 @@ class TraccarDevice(models.Model):
     has_distance = fields.Boolean(readonly=True)
     ignition = fields.Selection([('on', 'On'), ('off', 'Off'), ('unknown', 'Unknown')], readonly=True, default='unknown')
 
-    _remote_unique = models.Constraint('UNIQUE(server_id, remote_id)', 'A device can only be imported once per server.')
-    _vehicle_unique = models.Constraint('UNIQUE(vehicle_id)', 'A vehicle can only be linked to one Traccar device.')
+    _sql_constraints = [
+        ('remote_unique', 'UNIQUE(server_id, remote_id)', 'A device can only be imported once per server.'),
+        ('vehicle_unique', 'UNIQUE(vehicle_id)', 'A vehicle can only be linked to one Traccar device.'),
+    ]
 
     @api.constrains('vehicle_id', 'company_id')
     def _same_company(self):

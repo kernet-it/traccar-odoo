@@ -59,7 +59,7 @@ class TestTraccar(TransactionCase):
         other = self.env['res.company'].create({'name': 'Other'})
         user = self.env['res.users'].create({'name': 'Fleet officer', 'login': 'traccar-test-officer',
             'company_id': self.env.company.id, 'company_ids': [Command.set([self.env.company.id])],
-            'group_ids': [Command.set([self.env.ref('fleet.fleet_group_user').id])]})
+            'groups_id': [Command.set([self.env.ref('fleet.fleet_group_user').id])]})
         with self.assertRaises(AccessError):
             self.server.with_user(user).read(['password'])
         with self.assertRaises(AccessError):
@@ -79,7 +79,7 @@ class TestTraccar(TransactionCase):
     def test_manager_sync_without_secret_access(self):
         user = self.env['res.users'].create({'name': 'Fleet manager', 'login': 'traccar-test-manager',
             'company_id': self.env.company.id, 'company_ids': [Command.set([self.env.company.id])],
-            'group_ids': [Command.set([self.env.ref('fleet.fleet_group_manager').id])]})
+            'groups_id': [Command.set([self.env.ref('fleet.fleet_group_manager').id])]})
         with self.assertRaises(AccessError):
             self.server.with_user(user).read(['password'])
         with patch.object(type(self.server), '_get', return_value=[]):

@@ -1,6 +1,6 @@
 {
     'name': 'Traccar Fleet',
-    'version': '19.0.1.0.0',
+    'version': '18.0.1.0.0',
     'summary': 'Connect Fleet vehicles to Traccar GPS tracking',
     'category': 'Human Resources/Fleet',
     'author': 'Traccar',
